@@ -17,7 +17,7 @@ Step 2️⃣ Select Trusted Entity
    
 3. Check Require external ID
 4. Enter External ID:
-   finops-8f3a91c2
+   ex :- finops-8f3a91c67
 
 5. Click Next
 
