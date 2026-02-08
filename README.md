@@ -1,127 +1,41 @@
-# FinOps-Tool
-# user guide to create arn role
-How to Create an IAM Role (ARN) to Grant Read-Only Access
-✅ METHOD 1: Create Role WITHOUT JSON (Easiest & Recommended)
-Step 1️⃣ Open IAM
+# FinOps Tool – IAM Role Setup Guide
 
-1. Login to AWS Console
-2. Go to IAM
-3. Click Roles
-4. Click Create role
+This guide explains how to create an **AWS IAM Role (ARN)** that grants **read-only access** to your AWS account so the **FinOps Tool** can securely analyze usage and cost data.
 
-Step 2️⃣ Select Trusted Entity
+---
 
-1. Choose Another AWS account
-2. Enter Our AWS Account ID:
-   895183717403
-   
-3. Check Require external ID
-4. Enter External ID:
-   ex :- finops-8f3a91c67
+## 🔐 Purpose
 
-5. Click Next
+The IAM Role allows our FinOps platform to:
 
-📌 This allows our system to securely assume this role.
+- Securely assume access using **AWS STS**
+- Collect **read-only** billing and infrastructure metadata
+- **Never modify** your AWS resources
 
-Step 3️⃣ Attach Permissions (Read-Only)
+---
 
-Search and select:
-  ✅ ReadOnlyAccess
+## 📌 Prerequisites
 
-Step 4️⃣ Name the Role
+- AWS account with permission to create IAM roles
+- External ID provided by the FinOps Tool
 
-Role name:
-   FinOpsReadOnlyRole
-   
-Click Create role
+---
 
-Step 5️⃣ Share Role ARN with Us
+## ✅ Method 1: Create Role **Without JSON**
+**(Recommended – Easiest & Safest)**
 
-Open the role you just created
+---
 
-Copy the Role ARN
+### Step 1: Open IAM
 
-Example:
-  arn:aws:iam::123456789012:role/FinOpsReadOnlyRole
+1. Log in to the **AWS Management Console**
+2. Navigate to **IAM**
+3. Click **Roles**
+4. Click **Create role**
 
-📤 Send this ARN to us — setup is complete 🎉
+---
 
+### Step 2: Select Trusted Entity
 
-✅ METHOD 2: Create Role WITH JSON (Advanced / Copy-Paste)
-
-Use this if:
-You are comfortable with IAM
-Or following automation / infra guides
-
-
-Part A️ Create Role + Trust Policy (JSON)
-Step 1️⃣ Go to IAM → Roles → Create role
-
-Choose Custom trust policy
-
-Step 2️⃣ Paste this Trust Policy JSON
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::895183717403:root"
-      },
-      "Action": "sts:AssumeRole",
-      "Condition": {
-        "StringEquals": {
-          "sts:ExternalId": "finops-8f3a91c2"
-        }
-      }
-    }
-  ]
-}
-
-Click Next
-
-Part B️ Attach Permissions Policy
-
-AWS Managed Policy (Easy)
-
-Attach:
-✅ ReadOnlyAccess
-
-C️ Name the Role
-
-Role name:
-   FinOpsReadOnlyRole
-
-Click Create role
-
-Final Step️ Share Role ARN
-Copy and share the Role ARN
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. Choose **Another AWS account**
+2. Enter **Our AWS Account ID**:
