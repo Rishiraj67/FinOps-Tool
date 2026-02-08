@@ -20,8 +20,9 @@ app.get("/", (req, res)=> {
 
 // Use all Route here
 import { userRouter } from "./src/routes/user.route.js";
+import { awsRouter } from "./src/routes/aws.router.js";
 app.use("/auth", userRouter);
-
+app.use("/aws", awsRouter)
 
 
 export default app;

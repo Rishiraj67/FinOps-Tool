@@ -6,4 +6,4 @@ import login from "../controllers/auth/login.js";
 export const userRouter = Router();
 
 userRouter.post("/signup",registerUser);
-userRouter.post("/login", login)
+userRouter.post("/login", login);

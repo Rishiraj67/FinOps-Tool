@@ -10,6 +10,13 @@ const AWSSchema = new mongoose.Schema({
         type: String,
         unique: true,
     },
+    aws_arn:{
+        type: String
+    },
+    aws_external_id:{
+        type: String,
+        unique: true,
+    },
     aws_role:{
         type:String
     },
