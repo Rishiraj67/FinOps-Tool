@@ -1,5 +1,5 @@
 import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { s3 } from "../../../../config/aws/config.js";
+import { s3 } from "../../../../../config/aws/config.js";
 
 const createUserS3Folders = async (userId, awsAccountId) => {
   const basePath = `users/${userId}/${awsAccountId}/`;
